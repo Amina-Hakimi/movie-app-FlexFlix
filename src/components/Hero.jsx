@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { json } from 'react-router-dom';
+import OneMovie from '../pages/OneMovie';
 
 
 const Hero = () => {
-const [movie, setMovie] = useState({});
+const [movie, setMovie] = useState([]);
 
 const getMovie = async () => {
   try {
@@ -12,9 +13,9 @@ const getMovie = async () => {
     )
       .then((res) => res.json())
       .then((json) => console.log(json.results));
-      // const movies = json.results;
-      // const randomMovie = movies[Math.floor(Math.random() * 19)];
-      // console.log(randomMovie);
+      const movies = json.results;
+      const randomMovie = movies[Math.floor(Math.random() * movies.length)];
+      console.log(randomMovie);
   } catch (err) {
     console.error(err);
   }
@@ -28,7 +29,15 @@ useEffect(() => {
 // const randomMovie = movies[Math.floor(Math.random() * 19)];
 // console.log(randomMovie);
   return (
-    <div>Hero</div>
+    <div>
+      {movie.map((data) => {
+          return (
+            <div key={data.id}>
+              <OneMovie data={data} />
+            </div>
+          );
+        })}
+    </div>
   )
 }
 
