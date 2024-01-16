@@ -34,7 +34,7 @@ const Search = (e) => {
     <div>
       
       <ul className="text-white flex items-center justify-between   mx-5 px-2 text-lg">
-      <Link to="/">
+      <Link to="/accueil">
       <img src={logo} alt="logo" width="250" height="250" />
       </Link> 
         <Link to="/accueil">
@@ -48,7 +48,7 @@ const Search = (e) => {
         </Link>
         <div>
           <form
-          // onSubmit={hasFormSubmit}
+          onSubmit={Search}
             autoComplete="off" role="search">
           <input
           className="text-black rounded px-2 py-2"
@@ -63,26 +63,29 @@ const Search = (e) => {
             Recherche
             </button>
           </form>
+         
+          <div className="grid grid-cols-4 gap-6 mx-5">
           {
             content && content.map((val) =>{
                 const {
                     title,
-                    poster_path,
                     id,
-                    overview,
+                    poster_path,
                 } = val;
                 return (
                     <div key={id}>
                        <h3>{title}</h3> 
                        {/* <img src={poster_path ? `${w500}/${poster_path}`: unvailable} /> */}
-                       <img src={poster_path}/>
-                       <p>{overview}</p>
+                       <img src={`https://image.tmdb.org/t/p/w500${poster_path}`}/>
+                       {/* <p>{overview}</p> */}
                     </div>
                      )
                     
                       })
             
           } 
+          
+          </div>
         </div>   
         <Link to="/se connecter" className="border-2 border-purple-600 rounded px-4 py-2">connexion</Link>
         <Link to="/s'identifier"
@@ -93,6 +96,7 @@ const Search = (e) => {
       </ul>
       
     </div>
+    
   );
 }
 

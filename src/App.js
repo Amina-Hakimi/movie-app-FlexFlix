@@ -1,5 +1,5 @@
 import './App.css';
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, Router} from "react-router-dom";
 import Navbar from './components/Navbar';
 import Signup from './pages/Signup';
 import Movies from './pages/Movies';
@@ -17,7 +17,7 @@ function App() {
       <AuthContextProvider>
       <Navbar/>
       <Routes>
-        <Route path='/accueil' element={<Home/>}/>
+        <Route path='/' element={<Home/>}/>
         <Route path='/films' element={<Movies/>}/>
         <Route path='/séries' element={<TVShow/>}/>
         <Route path='/films/:id' element={<OneMovie/>}/>
