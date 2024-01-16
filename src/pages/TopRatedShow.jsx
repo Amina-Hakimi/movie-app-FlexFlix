@@ -27,7 +27,7 @@ useEffect(() => {
 
   return (
     <div>
-     <h1 className='text-center text-purple-600 text-2xl'>Les 5 séries les mieux notés</h1>
+     <h1 className='text-center text-purple-600 text-2xl'>Les 5 séries les mieux notées</h1>
       <div className='grid grid-cols-5 gap-4 mx-5 my-5'>
         {topRatedShow.map((show) => (
             <div>
